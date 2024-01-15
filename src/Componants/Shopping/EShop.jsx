@@ -1,19 +1,24 @@
 import React, { useContext } from "react";
-import { MyContext } from "../Contexts/MyContextProvider";
 import { Link } from "react-router-dom";
-
-function Product() {
+import { MyContext } from "../../Contexts/MyContextProvider";
+function EShop() {
   const { shopFromContext } = useContext(MyContext);
-  console.log(shopFromContext, 888);
+
+  const EShop = shopFromContext.filter(
+    (shop) => shop.category === "electronics"
+  );
+
+  const goBack = () => {
+    window.history.back();
+  };
 
   return (
     <>
-      <h4>All Comp</h4>
-<div style={{display:"flex", paddingLeft:"2px", marginLeft:"10px"}}>
-  <button><Link to={'/jeshop'}>jeshop</Link></button>
-  <button><Link to={'/electric'}>electric-shop</Link></button>
-</div>
-      {shopFromContext.map((item) => (
+      <button onClick={goBack}>All Products</button>
+
+      <h4>Electronics Products</h4>
+
+      {EShop.map((item) => (
         <div className="product-card" key={item.id}>
           <img src={item.image} alt={item.title} className="product-image" />
           <div className="product-details">
@@ -32,4 +37,4 @@ function Product() {
   );
 }
 
-export default Product;
+export default EShop;

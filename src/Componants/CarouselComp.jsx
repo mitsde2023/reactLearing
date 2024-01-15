@@ -15,9 +15,7 @@ export default function CarouselComp() {
   ];
 
   setTimeout(() => setNewCount(newCount + 1), 1000);
-  // const handelCount = () => {
-  //   setNewCount(newCount + 1);
-  // };
+
 
   return (
     <>
@@ -53,7 +51,6 @@ export default function CarouselComp() {
       ) : (
         <>
           <h1>current count {newCount}</h1>
-          {/* <button onClick={handelCount}>Incr Count </button>{" "} */}
         </>
       )}
     </>

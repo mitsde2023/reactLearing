@@ -12,7 +12,6 @@ function ViewStudentData() {
     fetchData();
   }, []);
 
-  console.log(studentData);
 
   return (
     <>
